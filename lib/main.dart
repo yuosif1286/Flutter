@@ -1,22 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(BirthDateCard());
+  runApp(const BirthDateCard());
 }
 
 class BirthDateCard extends StatelessWidget {
-  BirthDateCard();
+  const BirthDateCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xff0F0F0F),
+        backgroundColor: const Color(0xff0F0F0F),
         body: Container(
-          margin: new EdgeInsets.symmetric(vertical: 100.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          margin: const EdgeInsets.symmetric(vertical: 100.0),
+          child: ListView(
             children: [
               Container(
                   width: 150,
@@ -24,12 +23,19 @@ class BirthDateCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(width: 3, color: Colors.white),
                     shape: BoxShape.circle,
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         fit: BoxFit.fill, image: AssetImage('images/abod.png')),
                   )),
+              const Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 60,
+                endIndent: 60,
+                height: 60,
+              ),
               Container(
-                  margin: new EdgeInsets.symmetric(vertical: 20.0),
-                  child: Column(
+                  margin: const EdgeInsets.symmetric(vertical: 20.0),
+                  child: const Column(
                     children: [
                       Center(
                         child: Text(
@@ -53,6 +59,31 @@ class BirthDateCard extends StatelessWidget {
                       ),
                     ],
                   )),
+              Card(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                color: Colors.white,
+                child: const ListTile(
+                  leading: Icon(
+                    Icons.phone,
+                    size: 25,
+                    color: Colors.amber,
+                  ),
+                  title: Text(
+                    'Hello yoyo',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 243, 225, 219),
+                      fontFamily: 'PlaywriteUSATraditional.ttf',
+                      fontSize: 20,
+                    ),
+                    textDirection: TextDirection.ltr,
+                  ),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Container(
@@ -61,15 +92,10 @@ class BirthDateCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                   height: 50,
-                  child: Row(
+                  child: const Row(
                     children: [
                       Spacer(
                         flex: 1,
-                      ),
-                      Icon(
-                        Icons.phone,
-                        size: 25,
-                        color: Colors.amber,
                       ),
                       Spacer(
                         flex: 2,
@@ -93,25 +119,22 @@ class BirthDateCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                   height: 50,
-                  child: Row(
+                  child: const Row(
                     children: [
-                      Spacer(
-                        flex: 1,
+                      Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Icon(
+                          Icons.email,
+                          size: 25,
+                          color: Colors.amber,
+                        ),
                       ),
-                      Icon(
-                        Icons.email,
-                        size: 25,
-                        color: Colors.amber,
-                      ),
-                      Spacer(
-                        flex: 2,
-                      ),
-                      Text(
-                        'anyone@mail.com',
-                        style: TextStyle(fontSize: 17, color: Colors.grey),
-                      ),
-                      Spacer(
-                        flex: 4,
+                      Padding(
+                        padding: EdgeInsets.only(left: 16),
+                        child: Text(
+                          'anyone@mail.com',
+                          style: TextStyle(fontSize: 17, color: Colors.grey),
+                        ),
                       ),
                     ],
                   ),
