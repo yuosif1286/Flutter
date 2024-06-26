@@ -1,147 +1,195 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const BirthDateCard());
+  runApp(PointCounter());
 }
 
-class BirthDateCard extends StatelessWidget {
-  const BirthDateCard({super.key});
+class PointCounter extends StatefulWidget {
+  @override
+  State<PointCounter> createState() => _PointCounterState();
+}
+
+class _PointCounterState extends State<PointCounter> {
+  int counterA = 0, counterB = 0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color(0xff0F0F0F),
-        body: Container(
-          margin: const EdgeInsets.symmetric(vertical: 100.0),
-          child: ListView(
-            children: [
-              Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 3, color: Colors.white),
-                    shape: BoxShape.circle,
-                    image: const DecorationImage(
-                        fit: BoxFit.fill, image: AssetImage('images/abod.png')),
-                  )),
-              const Divider(
-                color: Colors.grey,
-                thickness: 1,
-                indent: 60,
-                endIndent: 60,
-                height: 60,
-              ),
-              Container(
-                  margin: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: const Column(
-                    children: [
-                      Center(
-                        child: Text(
-                          'Abody Ahmed',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontFamily: 'PlaywriteUSATraditional',
-                          ),
-                        ),
+        appBar: AppBar(
+          backgroundColor: Colors.red,
+          title: const Text('Point Counter'),
+          centerTitle: false,
+        ),
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    const Text(
+                      'Team A',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Center(
-                        child: Text(
-                          'Flutter Developer',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 10.0,
-                            fontFamily: 'PlaywriteUSATraditional.ttf',
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
-              Card(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                color: Colors.white,
-                child: const ListTile(
-                  leading: Icon(
-                    Icons.phone,
-                    size: 25,
-                    color: Colors.amber,
-                  ),
-                  title: Text(
-                    'Hello yoyo',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 243, 225, 219),
-                      fontFamily: 'PlaywriteUSATraditional.ttf',
-                      fontSize: 20,
                     ),
-                    textDirection: TextDirection.ltr,
+                    Text(
+                      '$counterA',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 90,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        counterA++;
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          minimumSize: const Size(150, 50)),
+                      child: const Text(
+                        'Add 1',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        counterA += 2;
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          minimumSize: const Size(150, 50)),
+                      child: const Text(
+                        'Add 2',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        counterA += 3;
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          minimumSize: const Size(150, 50)),
+                      child: const Text(
+                        'Add 3',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 290,
+                  child: VerticalDivider(
+                    color: Colors.grey,
+                    thickness: 1,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                  ),
-                  height: 50,
-                  child: const Row(
-                    children: [
-                      Spacer(
-                        flex: 1,
+                Column(
+                  children: [
+                    const Text(
+                      'Team B',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Spacer(
-                        flex: 2,
+                    ),
+                    Text(
+                      '$counterB',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 90,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        '(+964) 7712345678',
-                        style: TextStyle(fontSize: 17, color: Colors.grey),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        counterB++;
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          minimumSize: const Size(150, 50)),
+                      child: const Text(
+                        'Add 1',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      Spacer(
-                        flex: 4,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        counterB += 2;
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          minimumSize: const Size(150, 50)),
+                      child: const Text(
+                        'Add 2',
+                        style: TextStyle(color: Colors.white),
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        counterB += 3;
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          minimumSize: const Size(150, 50)),
+                      child: const Text(
+                        'Add 3',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
                 ),
+              ],
+            ),
+            const Spacer(
+              flex: 1,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                counterA = 0;
+                counterB = 0;
+                setState(() {});
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.lightBlue,
+                  minimumSize: const Size(150, 50)),
+              child: const Text(
+                'Reset',
+                style: TextStyle(color: Colors.white),
               ),
-              Padding(
-                padding: const EdgeInsets.all(32),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                  ),
-                  height: 50,
-                  child: const Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Icon(
-                          Icons.email,
-                          size: 25,
-                          color: Colors.amber,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 16),
-                        child: Text(
-                          'anyone@mail.com',
-                          style: TextStyle(fontSize: 17, color: Colors.grey),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+            const Spacer(
+              flex: 2,
+            )
+          ],
         ),
       ),
     );
