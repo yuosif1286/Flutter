@@ -8,6 +8,7 @@ class textCategory extends StatelessWidget {
   textCategory(
     this.title,
     this.backgroundColor, {
+    super.key,
     this.onTap,
   });
   @override

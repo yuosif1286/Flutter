@@ -1,18 +1,19 @@
 import 'package:first123project/Components/text_category.dart';
 import 'package:first123project/screens/numbers_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFEF6Db),
+      backgroundColor: const Color(0xffFEF6Db),
       appBar: AppBar(
         titleSpacing: 20,
         centerTitle: false,
-        title: Text('Tuoke'),
-        titleTextStyle: TextStyle(
+        title: const Text('Toke'),
+        titleTextStyle: const TextStyle(
             color: Colors.white,
             fontSize: 27,
             decorationThickness: 3,
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => NumbersPages()),
+                MaterialPageRoute(builder: (context) => const NumbersPages()),
               );
             },
           ),

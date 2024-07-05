@@ -2,14 +2,14 @@ import 'package:first123project/screens/Home_pages.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Tuoke());
+  runApp(const Toke());
 }
 
-class Tuoke extends StatelessWidget {
-  Tuoke();
+class Toke extends StatelessWidget {
+  const Toke({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

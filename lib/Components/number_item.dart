@@ -1,9 +1,9 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:first123project/Models/number.dart';
 import 'package:flutter/material.dart';
 
 class NumberItem extends StatelessWidget {
   const NumberItem({
+    super.key,
     required this.item,
   });
   final Number item;
@@ -15,7 +15,7 @@ class NumberItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            color: Color(0xffFFF6DC),
+            color: const Color(0xffFFF6DC),
             child: Image.asset(
               item.image,
               width: 70,
@@ -34,7 +34,7 @@ class NumberItem extends StatelessWidget {
                     shadows: [Shadow(color: Colors.black12, blurRadius: 20)]),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   item.gbName,
                   style: const TextStyle(
@@ -51,9 +51,9 @@ class NumberItem extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              final player = AudioPlayer();
-              player.play(
-                  AssetSource('assets/sounds/numbers/number_eight_sound.mp3'));
+              // final player = AudioPlayer();
+              // player.play(
+              //     AssetSource('assets/sounds/numbers/number_eight_sound.mp3'));
             },
             icon: const Icon(
               Icons.arrow_right,
