@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:first123project/Models/number.dart';
 import 'package:flutter/material.dart';
 
@@ -51,16 +52,15 @@ class NumberItem extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              // final player = AudioPlayer();
-              // player.play(
-              //     AssetSource('assets/sounds/numbers/number_eight_sound.mp3'));
+              final player = AudioPlayer();
+              player.play(AssetSource('sounds/family_members/daughter.wav'));
             },
             icon: const Icon(
               Icons.arrow_right,
               size: 30,
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
     );
