@@ -9,43 +9,53 @@ class NumbersPages extends StatelessWidget {
     Number(
         image: 'assets/images/numbers/number_one.png',
         gbName: 'One',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_one_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_two.png',
         gbName: 'Tow',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_two_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_three.png',
         gbName: 'Three',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_three_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_four.png',
         gbName: 'Four',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_four_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_five.png',
         gbName: 'five',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_five_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_six.png',
         gbName: 'Six',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_six_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_seven.png',
         gbName: 'Seven',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_seven_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_eight.png',
         gbName: 'Eight',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_eight_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_nine.png',
         gbName: 'Nine',
-        enName: 'test'),
+        enName: 'test',
+        sound: 'sounds/numbers/number_nine_sound.mp3'),
     Number(
         image: 'assets/images/numbers/number_ten.png',
         gbName: 'Ten',
-        enName: 'test')
+        enName: 'test',
+        sound: 'sounds/numbers/number_ten_sound.mp3')
   ];
 
   @override
@@ -54,7 +64,7 @@ class NumbersPages extends StatelessWidget {
       appBar: AppBar(
         titleSpacing: 20,
         centerTitle: false,
-        title: const Text('Tuoke'),
+        title: const Text('Numbers'),
         titleTextStyle: const TextStyle(
             color: Colors.white,
             fontSize: 27,
@@ -65,17 +75,17 @@ class NumbersPages extends StatelessWidget {
       body: ListView.builder(
         itemCount: numbers.length,
         itemBuilder: (context, index) {
-          return NumberItem(item: numbers[index]);
+          return NumberItem(item: numbers[index], color: Colors.orange);
         },
       ),
     );
   }
 
-  List<Widget> getList(List<Number> numbers) {
-    List<Widget> list = [];
-    for (int i = 0; i < numbers.length; i++) {
-      list.add(NumberItem(item: numbers[i]));
-    }
-    return list;
-  }
+  // List<Widget> getList(List<Number> numbers) {
+  //   List<Widget> list = [];
+  //   for (int i = 0; i < numbers.length; i++) {
+  //     list.add(NumberItem(item: numbers[i]));
+  //   }
+  //   return list;
+  // }
 }

@@ -6,12 +6,14 @@ class NumberItem extends StatelessWidget {
   const NumberItem({
     super.key,
     required this.item,
+    required this.color,
   });
   final Number item;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orange,
+      color: color,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -52,8 +54,10 @@ class NumberItem extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              final player = AudioPlayer();
-              player.play(AssetSource('sounds/family_members/daughter.wav'));
+              if (item.sound != null) {
+                final player = AudioPlayer();
+                player.play(AssetSource(item.sound!));
+              }
             },
             icon: const Icon(
               Icons.arrow_right,

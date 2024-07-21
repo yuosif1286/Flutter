@@ -1,4 +1,5 @@
 import 'package:first123project/Components/text_category.dart';
+import 'package:first123project/screens/famly_members_page.dart';
 import 'package:first123project/screens/numbers_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -26,10 +27,7 @@ class HomePage extends StatelessWidget {
             'members',
             Colors.orange,
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const NumbersPages()),
-              );
+              print('this will coming soon');
             },
           ),
           textCategory(
@@ -39,13 +37,20 @@ class HomePage extends StatelessWidget {
           textCategory(
             'numbers',
             Colors.green,
-            onTap: null,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NumbersPages()),
+              );
+            },
           ),
-          textCategory(
-            'familyMembers',
-            Colors.deepOrangeAccent,
-            onTap: null,
-          )
+          textCategory('familyMembers', Colors.deepOrangeAccent, onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const FamilyMembersPage()),
+            );
+          }),
         ],
       ),
     );
