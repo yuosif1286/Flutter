@@ -1,15 +1,15 @@
-import 'package:first123project/screens/Home_pages.dart';
+import 'package:first123project/views/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Toke());
+  runApp(const Tune());
 }
 
-class Toke extends StatelessWidget {
-  const Toke({super.key});
+class Tune extends StatelessWidget {
+  const Tune({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
