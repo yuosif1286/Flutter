@@ -10,8 +10,15 @@ class TuneItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: item.color,
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => {
+          item.play(),
+        },
+        child: Container(
+          color: item.color,
+        ),
+      ),
     );
   }
 }

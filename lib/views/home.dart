@@ -3,8 +3,18 @@ import 'package:first123project/components/tune_item.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
+  List<TuneModel> items = [
+    TuneModel(color: Colors.yellowAccent, sound: 'note1.wav'),
+    TuneModel(color: Colors.red, sound: 'note2.wav'),
+    TuneModel(color: Colors.green, sound: 'note3.wav'),
+    TuneModel(color: Colors.blue, sound: 'note4.wav'),
+    TuneModel(color: Colors.yellow, sound: 'note5.wav'),
+    TuneModel(color: Colors.redAccent, sound: 'note6.wav'),
+    TuneModel(color: Colors.cyan, sound: 'note7.wav'),
+    TuneModel(color: Colors.deepOrange, sound: 'note2.wav'),
+  ];
   @override
   Widget build(Object context) {
     return Scaffold(
@@ -20,64 +30,23 @@ class HomePage extends StatelessWidget {
         elevation: 10.0,
         toolbarHeight: 80,
       ),
-      body: Column(children: [
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.red,
-              sound: '',
-            ),
-          ),
-        ),
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.black,
-              sound: '',
-            ),
-          ),
-        ),
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.green,
-              sound: '',
-            ),
-          ),
-        ),
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.blue,
-              sound: '',
-            ),
-          ),
-        ),
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.yellow,
-              sound: '',
-            ),
-          ),
-        ),
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.transparent,
-              sound: '',
-            ),
-          ),
-        ),
-        Expanded(
-          child: TuneItem(
-            item: TuneModel(
-              color: Colors.lightGreen,
-              sound: '',
-            ),
-          ),
-        ),
-      ]),
+      // body: Column(children: getTuneItems()),
+      // other way
+      body: Column(
+        children: items
+            .map(
+              (e) => TuneItem(item: e),
+            )
+            .toList(),
+      ),
     );
   }
+
+  // List<TuneItem> getTuneItems() {
+  //   List<TuneItem> tuneItems = [];
+  //   for (int i = 0; i < items.length; i++) {
+  //     tuneItems.add(TuneItem(item: items[i]));
+  //   }
+  //   return tuneItems;
+  // }
 }
