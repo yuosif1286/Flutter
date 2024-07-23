@@ -2,8 +2,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:first123project/Models/item_model.dart';
 import 'package:flutter/material.dart';
 
-class NumberItem extends StatelessWidget {
-  const NumberItem({
+class PhrasesItem extends StatelessWidget {
+  const PhrasesItem({
     super.key,
     required this.item,
     required this.color,
@@ -17,14 +17,6 @@ class NumberItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            color: const Color(0xffFFF6DC),
-            child: Image.asset(
-              item.image,
-              width: 70,
-              colorBlendMode: BlendMode.hardLight,
-            ),
-          ),
           const SizedBox(width: 15),
           Column(
             children: [

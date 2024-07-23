@@ -1,9 +1,10 @@
 import 'package:first123project/Components/number_item.dart';
+import 'package:first123project/Components/phrases_item.dart';
 import 'package:first123project/Models/item_model.dart';
 import 'package:flutter/material.dart';
 
-class FamilyMembersPage extends StatelessWidget {
-  const FamilyMembersPage({super.key});
+class PhrasesPage extends StatelessWidget {
+  const PhrasesPage({super.key});
 
   final List<ItemModel> numbers = const <ItemModel>[
     ItemModel(
@@ -65,7 +66,8 @@ class FamilyMembersPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: numbers.length,
         itemBuilder: (BuildContext context, int index) {
-          return NumberItem(item: numbers[index], color: Colors.green);
+          return PhrasesItem(
+              item: numbers[index], color: Color.fromARGB(255, 220, 115, 209));
         },
       ),
     );
