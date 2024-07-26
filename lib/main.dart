@@ -1,16 +1,17 @@
-import 'package:first123project/views/home.dart';
+import 'package:first123project/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Tune());
+  runApp(const News());
 }
 
-class Tune extends StatelessWidget {
-  const Tune({super.key});
+class News extends StatelessWidget {
+  const News({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
+      home: HomeView(),
     );
   }
 }
