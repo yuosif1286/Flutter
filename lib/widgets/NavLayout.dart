@@ -13,12 +13,14 @@ class _NavLayoutState extends State<NavLayout> {
     return CupertinoPageScaffold(
         child: Center(
             child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const CupertinoButton(onPressed: null, child: Text('Add Test')),
+        const CupertinoButton.filled(onPressed: null, child: Text('Add Test')),
         const SizedBox(
           height: 30,
         ),
-        CupertinoButton(child: const Text('Edit Test'), onPressed: () {}),
+        CupertinoButton.filled(
+            child: const Text('Edit Test'), onPressed: () {}),
         const SizedBox(
           height: 30,
         ),
