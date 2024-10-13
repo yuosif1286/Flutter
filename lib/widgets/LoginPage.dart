@@ -1,3 +1,4 @@
+import 'package:first123project/widgets/UserIfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    String username = Userifo.of(context)!.Name;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -45,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                         1; // Update count inside setState to trigger a rebuild
                   });
                 },
-                child: const Text('Count ++'),
+                child: Text('Count ++ $username'),
               ),
             )
           ],

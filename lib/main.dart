@@ -1,4 +1,5 @@
 import 'package:first123project/widgets/LoginPage.dart';
+import 'package:first123project/widgets/UserIfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,11 +12,14 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
-      designSize: Size(375, 812),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: LoginPage(),
+    return const Userifo(
+      Name: 'yoyo',
+      child: ScreenUtilInit(
+        designSize: Size(375, 812),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: LoginPage(),
+        ),
       ),
     );
   }
