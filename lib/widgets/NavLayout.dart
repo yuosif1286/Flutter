@@ -19,23 +19,23 @@ class _NavLayoutState extends State<NavLayout> {
             context: context,
             builder: (BuildContext context) => CupertinoAlertDialog(
                     title: const Text('This Title Dialog'),
-                    content: const Text('This is Containt Dialog ?'),
+                    content: const Text('This is Content Dialog ?'),
                     actions: <CupertinoDialogAction>[
                       CupertinoDialogAction(
-                        child: const Text('Cancel'),
                         textStyle:
                             const TextStyle(color: CupertinoColors.systemRed),
                         onPressed: () {
                           Navigator.pop(context);
                         },
+                        child: const Text('Cancel'),
                       ),
                       CupertinoDialogAction(
-                        child: const Text('Confirm'),
                         textStyle:
                             const TextStyle(color: CupertinoColors.activeGreen),
                         onPressed: () {
                           Navigator.pop(context);
                         },
+                        child: const Text('Confirm'),
                       ),
                     ]));
       },
