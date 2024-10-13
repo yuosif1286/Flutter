@@ -1,4 +1,5 @@
 import 'package:first123project/widgets/LoginPage.dart';
+import 'package:first123project/widgets/NavLayout.dart';
 import 'package:first123project/widgets/UserIfo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,13 +24,10 @@ class MyHomePage extends StatelessWidget {
             barBackgroundColor: Color.fromARGB(255, 55, 65, 77),
             primaryColor: CupertinoColors.activeOrange),
         home: CupertinoPageScaffold(
-          navigationBar: CupertinoNavigationBar(
-            middle: Text('Flutter App'),
-          ),
-          child: Center(
-            child: Icon(CupertinoIcons.share),
-          ),
-        ),
+            navigationBar: CupertinoNavigationBar(
+              middle: Text('Flutter App'),
+            ),
+            child: NavLayout()),
       ),
     );
   }
