@@ -9,24 +9,37 @@ class NavLayout extends StatefulWidget {
 }
 
 class _NavLayoutState extends State<NavLayout> {
-  DateTime dateTime = DateTime.now();
+  int _selectedValue = 0;
+
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-        backgroundColor: const Color.fromARGB(244, 20, 50, 47),
-        navigationBar: CupertinoNavigationBar(
-          automaticallyImplyLeading: true,
-          backgroundColor: CupertinoColors.systemGrey.withOpacity(0.6),
-          middle: const Text('My App'),
-        ),
-        child: Stack(
-          children: [
-            Image.network(
-              'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-              fit: BoxFit.cover,
-              height: double.infinity,
+    return Center(
+      child: CupertinoButton.filled(
+        child: Text('value = $_selectedValue'),
+        onPressed: () => showCupertinoModalPopup(
+          context: context,
+          builder: (_) => SizedBox(
+            width: double.infinity,
+            height: 250,
+            child: CupertinoPicker(
+              itemExtent: 30,
+              backgroundColor: Colors.blueAccent.withOpacity(0.5),
+              scrollController: FixedExtentScrollController(initialItem: 0),
+              onSelectedItemChanged: (int newValue) {
+                setState(() {
+                  _selectedValue = newValue;
+                });
+              },
+              children: const [
+                Text('0'),
+                Text('1'),
+                Text('2'),
+                Text('3'),
+              ],
             ),
-          ],
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }
