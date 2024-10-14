@@ -11,22 +11,19 @@ class NavLayout extends StatefulWidget {
 class _NavLayoutState extends State<NavLayout> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: CupertinoButton.filled(
-          child: const Text('click me'),
-          onPressed: () => showCupertinoModalPopup(
-              context: context,
-              builder: (_) => Container(
-                    transformAlignment: Alignment.center,
-                    color: Colors.white,
-                    height: 400,
-                    width: double.infinity,
-                    child: Center(
-                      child: CupertinoButton(
-                          child: const Text('Close'),
-                          onPressed: () => {Navigator.of(context).pop()}),
-                    ),
-                  ))),
+    return CupertinoScrollbar(
+      thickness: 1.0,
+      thicknessWhileDragging: 10.0,
+      child: ListView.builder(
+          itemCount: 30,
+          itemBuilder: (BuildContext context, int index) {
+            return Center(
+              child: Text(
+                '$index',
+                style: const TextStyle(fontSize: 30),
+              ),
+            );
+          }),
     );
   }
 }
