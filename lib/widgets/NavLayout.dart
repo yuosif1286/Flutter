@@ -8,33 +8,34 @@ class NavLayout extends StatefulWidget {
 }
 
 class _NavLayoutState extends State<NavLayout> {
+  DateTime dateTime = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-        child: Center(
-      child: SizedBox(
-        height: 100,
-        width: 100,
-        child: CupertinoContextMenu(
-          actions: <CupertinoContextMenuAction>[
-            CupertinoContextMenuAction(
-              child: const Text("One"),
-              onPressed: () {
-                Navigator.pop(context); // Pop the context menu
-              },
-            ),
-            CupertinoContextMenuAction(
-              child: const Text("Two"),
-              onPressed: () {
-                Navigator.pop(context); // Pop the context menu
-              },
-            ),
-          ],
-          child: Image.network(
-            "https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-          ),
+      child: Center(
+        child: CupertinoButton(
+          child: Text('${dateTime.year}-${dateTime.month}-${dateTime.day}'),
+          onPressed: () {
+            showCupertinoModalPopup(
+              context: context,
+              builder: (BuildContext context) => SizedBox(
+                height: 250,
+                child: CupertinoDatePicker(
+                  backgroundColor: CupertinoColors.black,
+                  initialDateTime: dateTime,
+                  onDateTimeChanged: (DateTime newDate) {
+                    setState(() {
+                      dateTime = newDate;
+                    });
+                  },
+                  use24hFormat: true,
+                  mode: CupertinoDatePickerMode.date,
+                ),
+              ),
+            );
+          },
         ),
       ),
-    ));
+    );
   }
 }
