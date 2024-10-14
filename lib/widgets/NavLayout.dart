@@ -13,28 +13,20 @@ class _NavLayoutState extends State<NavLayout> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-        child: Center(
-      child: CupertinoButton.filled(
-        child: const Text('Go Page Two'),
-        onPressed: () => (Navigator.of(context)
-            .push(CupertinoPageRoute(builder: (BuildContext context) {
-          return const PageTwo();
-        }))),
-      ),
-    ));
-  }
-}
-
-class PageTwo extends StatelessWidget {
-  const PageTwo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.blueGrey,
-      body: Center(
-        child: Text('this page Two'),
-      ),
-    );
+        backgroundColor: const Color.fromARGB(244, 20, 50, 47),
+        navigationBar: CupertinoNavigationBar(
+          automaticallyImplyLeading: true,
+          backgroundColor: CupertinoColors.systemGrey.withOpacity(0.6),
+          middle: const Text('My App'),
+        ),
+        child: Stack(
+          children: [
+            Image.network(
+              'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+              fit: BoxFit.cover,
+              height: double.infinity,
+            ),
+          ],
+        ));
   }
 }

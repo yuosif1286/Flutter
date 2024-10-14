@@ -18,17 +18,12 @@ class MyHomePage extends StatelessWidget {
     return const ScreenUtilInit(
       designSize: Size(375, 812),
       child: CupertinoApp(
-        debugShowCheckedModeBanner: false,
-        theme: CupertinoThemeData(
-            brightness: Brightness.dark,
-            barBackgroundColor: Color.fromARGB(255, 55, 65, 77),
-            primaryColor: CupertinoColors.activeOrange),
-        home: CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(
-              middle: Text('Flutter App'),
-            ),
-            child: NavLayout()),
-      ),
+          debugShowCheckedModeBanner: false,
+          theme: CupertinoThemeData(
+              brightness: Brightness.dark,
+              barBackgroundColor: Color.fromARGB(255, 55, 65, 77),
+              primaryColor: CupertinoColors.activeOrange),
+          home: NavLayout()),
     );
   }
 }
