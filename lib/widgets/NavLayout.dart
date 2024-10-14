@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class NavLayout extends StatefulWidget {
   const NavLayout({super.key});
@@ -12,29 +13,27 @@ class _NavLayoutState extends State<NavLayout> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      child: Center(
-        child: CupertinoButton(
-          child: Text('${dateTime.year}-${dateTime.month}-${dateTime.day}'),
-          onPressed: () {
-            showCupertinoModalPopup(
-              context: context,
-              builder: (BuildContext context) => SizedBox(
-                height: 250,
-                child: CupertinoDatePicker(
-                  backgroundColor: CupertinoColors.black,
-                  initialDateTime: dateTime,
-                  onDateTimeChanged: (DateTime newDate) {
-                    setState(() {
-                      dateTime = newDate;
-                    });
-                  },
-                  use24hFormat: true,
-                  mode: CupertinoDatePickerMode.date,
-                ),
-              ),
-            );
-          },
-        ),
+        child: Center(
+      child: CupertinoButton.filled(
+        child: const Text('Go Page Two'),
+        onPressed: () => (Navigator.of(context)
+            .push(CupertinoPageRoute(builder: (BuildContext context) {
+          return const PageTwo();
+        }))),
+      ),
+    ));
+  }
+}
+
+class PageTwo extends StatelessWidget {
+  const PageTwo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: Colors.blueGrey,
+      body: Center(
+        child: Text('this page Two'),
       ),
     );
   }
