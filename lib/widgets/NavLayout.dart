@@ -9,29 +9,19 @@ class NavLayout extends StatefulWidget {
 }
 
 class _NavLayoutState extends State<NavLayout> {
-  double _value = 1;
+  int? _value = 0;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        children: [
-          const SizedBox(height: 50),
-          Text('$_value'),
-          const SizedBox(height: 50),
-          CupertinoSlider(
-            value: _value,
-            min: 0,
-            max: 10,
-            divisions: 10,
-            onChanged: (newValue) {
-              setState(() {
-                _value = newValue;
-              });
-            },
-          )
-        ],
-      ),
-    );
+    return Center(
+        child: CupertinoSlidingSegmentedControl(
+            children: const {
+          0: Text('Text 0'),
+          1: Text('Text 1'),
+          2: Text('Text 2')
+        },
+            groupValue: _value,
+            onValueChanged: (newValue) => setState(() {
+                  _value = newValue;
+                })));
   }
 }
