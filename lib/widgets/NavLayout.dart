@@ -9,7 +9,9 @@ class NavLayout extends StatefulWidget {
 }
 
 class _NavLayoutState extends State<NavLayout> {
-  bool _value = false;
+  String _value = '';
+  final TextEditingController _textController =
+      new TextEditingController(text: 'Test');
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
@@ -27,12 +29,34 @@ class _NavLayoutState extends State<NavLayout> {
           return CupertinoTabView(
             builder: (BuildContext context) {
               return Center(
-                child: Icon(
-                  index == 0
-                      ? CupertinoIcons.home
-                      : index == 1
-                          ? CupertinoIcons.phone
-                          : CupertinoIcons.star,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Icon(
+                      index == 0
+                          ? CupertinoIcons.home
+                          : index == 1
+                              ? CupertinoIcons.phone
+                              : CupertinoIcons.star,
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    CupertinoTextField(
+                      controller: _textController,
+                      onChanged: (value) {
+                        setState(() {
+                          _value = value;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Text(_value)
+                  ],
                 ),
               );
             },
