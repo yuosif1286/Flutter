@@ -12,27 +12,31 @@ class _NavLayoutState extends State<NavLayout> {
   bool _value = false;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 50,
-          ),
-          CupertinoSwitch(
-              value: _value,
-              onChanged: (value) => setState(() {
-                    _value = value;
-                  })),
-          const SizedBox(
-            height: 50,
-          ),
-          // Switch.adaptive(
-          //     value: _value,
-          //     onChanged: (value) => setState(() {
-          //           _value = value;
-          //         }))
-        ],
-      ),
-    );
+    return CupertinoTabScaffold(
+        tabBar: CupertinoTabBar(
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.phone), label: 'Phone'),
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.star), label: 'Favorites'),
+          ],
+        ),
+        tabBuilder: (BuildContext context, int index) {
+          return CupertinoTabView(
+            builder: (BuildContext context) {
+              return Center(
+                child: Icon(
+                  index == 0
+                      ? CupertinoIcons.home
+                      : index == 1
+                          ? CupertinoIcons.phone
+                          : CupertinoIcons.star,
+                ),
+              );
+            },
+          );
+        });
   }
 }
