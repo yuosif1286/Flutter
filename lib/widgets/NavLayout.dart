@@ -9,21 +9,32 @@ class NavLayout extends StatefulWidget {
 }
 
 class _NavLayoutState extends State<NavLayout> {
+  final TextEditingController _textController =
+      TextEditingController(text: 'Flutter Map');
+  String _text = 'Flutter Map';
   @override
   Widget build(BuildContext context) {
-    return CupertinoScrollbar(
-      thickness: 1.0,
-      thicknessWhileDragging: 10.0,
-      child: ListView.builder(
-          itemCount: 30,
-          itemBuilder: (BuildContext context, int index) {
-            return Center(
-              child: Text(
-                '$index',
-                style: const TextStyle(fontSize: 30),
-              ),
-            );
-          }),
+    return Container(
+      color: CupertinoColors.activeOrange.darkHighContrastColor,
+      padding: const EdgeInsets.all(10),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+                child: CupertinoSearchTextField(
+              controller: _textController,
+              onChanged: (newText) {
+                setState(() {
+                  _text = newText;
+                });
+              },
+            )),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(_text)
+          ]),
     );
   }
 }
