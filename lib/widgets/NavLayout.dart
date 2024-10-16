@@ -9,32 +9,66 @@ class NavLayout extends StatefulWidget {
 }
 
 class _NavLayoutState extends State<NavLayout> {
-  final TextEditingController _textController =
-      TextEditingController(text: 'Flutter Map');
-  String _text = 'Flutter Map';
+  String? _text;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: CupertinoColors.activeOrange.darkHighContrastColor,
-      padding: const EdgeInsets.all(10),
+    return Center(
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-                child: CupertinoSearchTextField(
-              controller: _textController,
-              onChanged: (newText) {
-                setState(() {
-                  _text = newText;
-                });
-              },
-            )),
-            const SizedBox(
-              height: 30,
+        children: [
+          const SizedBox(height: 50),
+          CupertinoSegmentedControl<String>(
+            children: {
+              'Youtube': Container(
+                color: _text == 'Youtube'
+                    ? Colors.greenAccent.withOpacity(0.3)
+                    : Colors.white,
+                width: double.infinity,
+                height: double.infinity,
+                padding: const EdgeInsets.all(8),
+                child: const Text(
+                  'Youtube',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              'Flutter': Container(
+                color: _text == 'Flutter'
+                    ? Colors.greenAccent.withOpacity(0.3)
+                    : Colors.white,
+                width: double.infinity,
+                height: double.infinity,
+                padding: const EdgeInsets.all(8),
+                child: const Text(
+                  'Flutter',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              'Google': Container(
+                color: _text == 'Google'
+                    ? Colors.greenAccent.withOpacity(0.3)
+                    : Colors.white,
+                width: double.infinity,
+                padding: const EdgeInsets.all(8),
+                height: double.infinity,
+                child: const Text(
+                  'Google',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            },
+            onValueChanged: (newValue) {
+              setState(() {
+                _text = newValue;
+              });
+            },
+          ),
+          const SizedBox(height: 50),
+          if (_text != null)
+            Text(
+              _text!,
+              style: const TextStyle(fontSize: 50),
             ),
-            Text(_text)
-          ]),
+        ],
+      ),
     );
   }
 }
