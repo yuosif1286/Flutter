@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class NavLayout extends StatefulWidget {
   const NavLayout({super.key});
@@ -14,53 +15,37 @@ class _NavLayoutState extends State<NavLayout> {
       new TextEditingController(text: 'Test');
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
-        tabBar: CupertinoTabBar(
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.phone), label: 'Phone'),
-            BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.star), label: 'Favorites'),
-          ],
-        ),
-        tabBuilder: (BuildContext context, int index) {
-          return CupertinoTabView(
-            builder: (BuildContext context) {
-              return Center(
+    return Container(
+        width: double.infinity,
+        color: CupertinoColors.black.withOpacity(0.3),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const Card(
+              child: Padding(
+                padding:
+                    EdgeInsets.only(right: 35, top: 30, bottom: 30, left: 16),
                 child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 50,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Task Title',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    Icon(
-                      index == 0
-                          ? CupertinoIcons.home
-                          : index == 1
-                              ? CupertinoIcons.phone
-                              : CupertinoIcons.star,
+                    SizedBox(
+                      height: 10,
                     ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    CupertinoTextField(
-                      controller: _textController,
-                      onChanged: (value) {
-                        setState(() {
-                          _value = value;
-                        });
-                      },
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Text(_value)
+                    Text(
+                      'Task Description',
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    )
                   ],
                 ),
-              );
-            },
-          );
-        });
+              ),
+            );
+          },
+        ));
   }
 }
